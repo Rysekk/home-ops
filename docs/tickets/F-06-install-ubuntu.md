@@ -1,4 +1,4 @@
-# F-06: Install Ubuntu 24.04 on both PCs
+# F-06: Install Ubuntu 26.04 on both PCs
 
 **Refs**: ADR-0003
 
