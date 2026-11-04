@@ -1,0 +1,63 @@
+# ── Secrets & keys (public repo: ADR-0004) ─────────────────
+# age private key: lives in the password manager, never in git
+*.agekey
+age.key
+keys.txt
+# decrypted copies of SOPS files (encrypted *.sops.yaml ARE committed)
+*.dec.yaml
+*.decrypted.*
+*.plain.yaml
+.env
+.env.*
+!.env.example
+
+# ── Kubernetes ─────────────────────────────────────────────
+kubeconfig
+kubeconfig*
+*.kubeconfig
+.kube/
+
+# ── Ansible ────────────────────────────────────────────────
+*.retry
+.vault_pass*
+vault-password*
+ansible/collections/ansible_collections/
+ansible/roles/galaxy/
+.ansible/
+
+# ── Helm ───────────────────────────────────────────────────
+charts/*/charts/
+*.tgz
+# keep Chart.lock committed for reproducible builds
+
+# ── Terraform (placeholder, ADR-0011) ──────────────────────
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.sops.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.tfstate.lock.info
+# keep .terraform.lock.hcl committed
+
+# ── Python tooling (ansible/pre-commit venvs) ──────────────
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# ── Editors / OS ───────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# ── Claude Code (local, per-user) ──────────────────────────
+.claude/

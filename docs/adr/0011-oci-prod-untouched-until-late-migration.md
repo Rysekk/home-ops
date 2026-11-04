@@ -1,0 +1,3 @@
+# oci prod stays as-is until homelab is proven
+
+The homelab is built entirely in parallel. oci keeps running exactly as today: Argo CD reads `low-latency-observability/deploy/`, CI commits the digest there, and flannel, Traefik and WireGuard stay in place. In a late, deliberate migration, oci's Argo CD moves to `home-ops/clusters/oci/` with an overlay that reproduces today's components unchanged. At the same time, Terraform moves to `home-ops/terraform/oci/` with remote state in OCI Object Storage (today's state is local-only). Converging oci to the platform baseline is a separate, later step.
