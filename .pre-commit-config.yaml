@@ -14,6 +14,17 @@ repos:
     hooks:
       - id: gitleaks
 
+  - repo: local
+    hooks:
+      - id: sops-encrypted
+        name: SOPS files must be encrypted
+        # SOPS adds a top-level `sops:` metadata block when it encrypts.
+        # --negate makes the hook FAIL when the pattern is NOT found.
+        language: pygrep
+        entry: '^sops:'
+        args: [--negate]
+        files: '\.sops\.ya?ml$'
+
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.38.0
     hooks:
