@@ -61,3 +61,6 @@ Thumbs.db
 
 # ── Claude Code (local, per-user) ──────────────────────────
 .claude/
+
+# ── Private notes / backlog (not public) ───────────────────
+notes/

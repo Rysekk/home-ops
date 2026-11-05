@@ -16,6 +16,6 @@ GitOps repository that declares every cluster I run, the platform components on 
 | `apps/` | Workloads: per-cluster values |
 | `ansible/` | Node bootstrap |
 | `terraform/` | Placeholder |
-| `docs/` | [ADRs](docs/adr), [tickets](docs/tickets), runbooks |
+| `docs/` | [ADRs](docs/adr), runbooks |
 
 See the [glossary](GLOSSARY.md) for the vocabulary used here.
