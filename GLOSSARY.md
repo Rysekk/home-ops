@@ -51,12 +51,12 @@ _Avoid_: stack, standard
 ## Nodes
 
 **Compute node**:
-The homelab PC with 32 GB of RAM. It runs the control plane and the heavy workloads.
+The homelab PC with 32 GB of RAM. It runs the control plane and the heavy workloads. Hostname: `cp-01`.
 _Avoid_: master, main node
 
 **Storage node**:
-The homelab PC with the 1 TB SSD. It holds bulk persistent data.
-_Avoid_: worker, NAS
+The homelab laptop with the 500 GB SSD. It holds bulk persistent data. Hostname: `worker-01`.
+_Avoid_: NAS
 
 ## Exposure
 
