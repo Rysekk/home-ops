@@ -12,7 +12,7 @@ GitOps repository that declares every cluster I run, the platform components on 
 | Node | Role | CPU | RAM | Storage | OS |
 |------|------|-----|-----|---------|----|
 | `cp-01` | k3s server (compute) | Intel Core i7-7700T (4C/8T) | 32 GB | 256 GB NVMe | Ubuntu 26.04 LTS |
-| `worker-01` | k3s agent (storage) | TBD (Acer Aspire VN7-571G laptop) | 12 GB | 500 GB SATA SSD | Ubuntu 26.04 LTS |
+| `worker-01` | k3s agent (storage) | Intel Core i5-5200U (2C/4T) | 12 GB | 500 GB SATA SSD | Ubuntu 26.04 LTS (laptop, Wi-Fi) |
 
 ## Layout
 
