@@ -44,7 +44,7 @@ override.tf.json
 .terraform.tfstate.lock.info
 # keep .terraform.lock.hcl committed
 
-# ── Python tooling (ansible/pre-commit venvs) ──────────────
+# ── Python tooling (ansible venvs) ─────────────────────────
 .venv/
 venv/
 __pycache__/

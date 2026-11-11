@@ -1,6 +1,6 @@
 # Public repo, secrets via External Secrets Operator, SOPS only for bootstrap
 
-`home-ops` is public. No secret is ever committed in plaintext. Runtime secrets are pulled into clusters by **External Secrets Operator** from an external store (Bitwarden Secrets Manager or Infisical). **SOPS + age** encrypts only the few files that must live in git, such as the ESO bootstrap credential and Terraform variables. gitleaks runs as a pre-commit hook and in CI.
+`home-ops` is public. No secret is ever committed in plaintext. Runtime secrets are pulled into clusters by **External Secrets Operator** from an external store (Bitwarden Secrets Manager or Infisical). **SOPS + age** encrypts only the few files that must live in git, such as the ESO bootstrap credential and Terraform variables. GitHub push protection rejects pushes that contain known secret formats, and every pull request runs gitleaks and a check that each `*.sops.yaml` file is encrypted. There are no local hooks to install.
 
 ## Considered Options
 
