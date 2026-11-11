@@ -1,0 +1,6 @@
+---
+all:
+  children:
+    k3s_server:
+      hosts:
+        cp-01:
