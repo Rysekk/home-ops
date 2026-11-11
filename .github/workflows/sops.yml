@@ -1,0 +1,24 @@
+name: sops
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  encrypted:
+    name: SOPS files are encrypted
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - name: Every *.sops.yaml has SOPS metadata
+        # SOPS adds a top-level `sops:` block when it encrypts a file.
+        # A file without it was committed in plaintext.
+        run: |
+          fail=0
+          while IFS= read -r -d '' f; do
+            if ! grep -q '^sops:' "$f"; then
+              echo "::error file=$f::not encrypted with SOPS"
+              fail=1
+            fi
+          done < <(git ls-files -z -- '*.sops.yaml' '*.sops.yml')
+          exit "$fail"
