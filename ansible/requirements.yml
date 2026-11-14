@@ -1,0 +1,8 @@
+---
+# Ansible Galaxy collections used by the playbooks/roles
+# install: ansible-galaxy collection install -r requirements.yml
+collections:
+  - name: ansible.posix       # sysctl, authorized_key, mount
+    version: ">=2.2.2,<3.0.0"
+  - name: community.general   # modprobe, timezone, ufw
+    version: ">=12.6.7,<13.0.0"   # 13.x needs ansible-core 2.18

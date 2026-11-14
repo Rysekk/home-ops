@@ -1,0 +1,4 @@
+# Python deps for the Ansible control node (install in ansible/.venv)
+# ansible-core 2.17 is the last line supporting Python 3.10 on the controller
+ansible-core==2.17.14
+ansible-lint==26.6.0
