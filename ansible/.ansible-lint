@@ -1,0 +1,7 @@
+---
+# ansible-lint config (runs in CI only, see .github/workflows/ansible-lint.yml)
+profile: production
+exclude_paths:
+  - .venv/
+  - collections/
+  - .ansible/
