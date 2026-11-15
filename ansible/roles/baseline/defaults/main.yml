@@ -12,3 +12,5 @@ baseline_sysctls:
 baseline_swap_file: /swap.img
 
 baseline_sysctl_file: /etc/sysctl.d/90-kubernetes.conf
+
+baseline_ssh_permit_root_login: "no"

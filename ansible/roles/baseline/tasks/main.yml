@@ -7,3 +7,6 @@
 
 - name: Disable swap
   ansible.builtin.import_tasks: swap.yml
+
+- name: SSH key-only
+  ansible.builtin.import_tasks: ssh.yml
