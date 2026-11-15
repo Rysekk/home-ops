@@ -1,10 +1,10 @@
 ---
-- name: Chrony package
+- name: Install chrony
   ansible.builtin.package:
     name: chrony
     state: present
 
-- name: Chorny service
+- name: Start and enable chrony
   ansible.builtin.service:
     name: chrony
     state: started

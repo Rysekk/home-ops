@@ -1,5 +1,5 @@
 ---
-- name: Service chrony
+- name: Time sync
   ansible.builtin.import_tasks: time.yml
 
 - name: Kernel and sysctls

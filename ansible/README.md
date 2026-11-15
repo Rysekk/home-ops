@@ -44,7 +44,7 @@ ansible-playbook playbooks/baseline.yml                  # apply
 |-----------|--------------|
 | `kernel.yml` | Loads `overlay` and `br_netfilter` now and at boot, sets the forwarding and bridge sysctls in `/etc/sysctl.d/90-kubernetes.conf` |
 | `swap.yml` | Turns swap off, removes it from `/etc/fstab` and deletes the swap file |
-| `time.yml` | check the chrony package is installed, if not install it and check the service is started and enable |
+| `time.yml` |  Installs chrony and keeps it running and enabled at boot |
 
 Variables and their defaults are in `roles/baseline/defaults/main.yml`.
 
