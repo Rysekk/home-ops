@@ -1,0 +1,11 @@
+---
+- name: Chrony package
+  ansible.builtin.package:
+    name: chrony
+    state: present
+
+- name: Chorny service
+  ansible.builtin.service:
+    name: chrony
+    state: started
+    enabled: true
