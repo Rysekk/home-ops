@@ -1,0 +1,6 @@
+---
+- name: Baseline for all nodes
+  hosts: all
+  become: true
+  roles:
+    - baseline

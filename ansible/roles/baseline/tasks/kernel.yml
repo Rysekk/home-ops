@@ -1,0 +1,18 @@
+---
+- name: Load kernel modules for Kubernetes
+  community.general.modprobe:
+    name: "{{ item }}"
+    state: present
+    persistent: present
+  loop: "{{ baseline_kernel_modules }}"
+
+- name: Set sysctls for Kubernetes
+  ansible.posix.sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    sysctl_file: "{{ baseline_sysctl_file }}"
+    state: present
+    reload: true
+  loop: "{{ baseline_sysctls }}"
+  loop_control:
+    label: "{{ item.name }}"

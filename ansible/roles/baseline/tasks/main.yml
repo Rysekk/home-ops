@@ -1,0 +1,6 @@
+---
+- name: Kernel and sysctls
+  ansible.builtin.import_tasks: kernel.yml
+
+- name: Disable swap
+  ansible.builtin.import_tasks: swap.yml
