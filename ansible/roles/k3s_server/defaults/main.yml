@@ -1,1 +1,2 @@
 ---
+k3s_server_kubeconfig_path: "{{ lookup('env', 'HOME') }}/.kube/homelab.yaml"

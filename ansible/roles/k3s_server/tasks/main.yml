@@ -53,3 +53,6 @@
         path: /var/lib/rancher/k3s/server/node-token
         timeout: 120
         state: present
+
+- name: Fetch kubeconfig to the laptop
+  ansible.builtin.import_tasks: fetch_kubeconfig.yml
