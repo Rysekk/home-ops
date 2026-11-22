@@ -1,0 +1,5 @@
+- name: K3s agent install
+  hosts: k3s_agent
+  become: true
+  roles:
+    - k3s_agent

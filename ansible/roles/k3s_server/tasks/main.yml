@@ -1,0 +1,58 @@
+---
+
+- name: Get k3s installed version
+  ansible.builtin.command: k3s --version
+  register: k3s_server_version_output
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Set k3s installed version
+  when: k3s_server_version_output.rc == 0
+  ansible.builtin.set_fact:
+    k3s_server_installed_version: "{{ k3s_server_version_output.stdout_lines[0].split(' ')[2] }}"
+
+- name: Ensure /etc/rancher/k3s directory exists
+  ansible.builtin.file:
+    path: /etc/rancher/k3s
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Create k3s config.yml
+  ansible.builtin.template:
+    src: config.yaml.j2
+    dest: /etc/rancher/k3s/config.yaml
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Reload k3s
+
+- name: Download k3s installer
+  when: (k3s_server_version_output.rc != 0) or (k3s_server_installed_version != k3s_version)
+  block:
+    - name: Download K3s install script
+      ansible.builtin.get_url:
+        url: https://get.k3s.io/
+        timeout: 120
+        dest: /usr/local/bin/k3s-install.sh
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Run K3s install script
+      ansible.builtin.command:
+        cmd: /usr/local/bin/k3s-install.sh
+      environment:
+        INSTALL_K3S_VERSION: "{{ k3s_version }}"
+      changed_when: true
+
+    - name: Wait for K3s token file to exist
+      ansible.builtin.wait_for:
+        path: /var/lib/rancher/k3s/server/node-token
+        timeout: 120
+        state: present
+
+- name: Fetch kubeconfig to the laptop
+  ansible.builtin.import_tasks: fetch_kubeconfig.yml

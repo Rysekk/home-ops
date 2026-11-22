@@ -1,0 +1,9 @@
+# /etc/rancher/k3s/config.yaml
+flannel-backend: "none"
+disable-network-policy: true
+disable-kube-proxy: true
+etcd-expose-metrics: true
+cluster-init: true
+disable:
+  - traefik
+  - servicelb
