@@ -1,9 +1,11 @@
 ---
 all:
   children:
-    k3s_server:
-      hosts:
-        cp-01:
-    k3s_agent:
-      hosts:
-        worker-01:
+    k3s_cluster:
+      children:
+        k3s_server:
+          hosts:
+            cp-01:
+        k3s_agent:
+          hosts:
+            worker-01:
